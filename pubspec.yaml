@@ -1,0 +1,15 @@
+name: pixelsand
+description: Web site pixelsand.online
+# version: 1.0.0
+
+environment:
+  sdk: '>=2.7.0 <3.0.0'
+
+dependencies:
+  loggable: ^1.0.1
+  nucleoid:
+#    path: ../nucleoid
+    git: git://github.com/FlutterSu/nucleoid.git
+
+dev_dependencies:
+  pedantic: ^1.8.0
