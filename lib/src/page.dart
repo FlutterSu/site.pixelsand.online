@@ -14,6 +14,14 @@ class HomePage with Loggable {
             Li(child: A(child: Text('Donate list'), classList: [disabled])),
             Li(child: A(child: Text('What\'s new'), classList: [disabled])),
             Li(child: A(child: Text('Contact'), classList: [disabled])),
+            Li(
+              child: A(
+                child: Text('git'),
+                href: 'https://github.com/FlutterSu/site.pixelsand.online',
+                target: TargetA.blank(),
+                rel: RelA.nofollow,
+              ),
+            ),
           ])),
         ],
       ),
