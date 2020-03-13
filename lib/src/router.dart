@@ -11,6 +11,9 @@ class PixelSandRouter extends Router with Loggable {
     Link(href: 'https://fonts.googleapis.com/css?family=Roboto:300&display=swap', rel: 'stylesheet'),
     Meta(charset: 'utf-8'),
     Meta(name: 'viewport', content: 'width=device-width, initial-scale=1,user-scalable=0'),
+    Text(Metrics.yandex),
+    Text(Metrics.google),
+    Text(Metrics.mailru),
   ];
 
   @override

@@ -43,24 +43,33 @@ class HomePage with Loggable {
           Div(classList: [
             divStartPlay
           ], children: [
-            P(child: Text('Play now online')),
             A(
-              href: '/play',
-              child: Img(src: '/images/get_in_web_browser.png'),
-            ),
-            P(child: Text('Play on Android')),
+                styleList: [StyleElement.fromText('background: #46d1fd')],
+                href: '/play',
+                children: [
+                  P(child: Text('Play now online')),
+                  Img(src: '/images/get_in_web_browser.png'),
+                ]),
             A(
-              href: 'https://play.google.com/store/apps/details?id=su.flutter.pixelsand',
-              target: TargetA.blank(),
-              rel: RelA.nofollow,
-              child: Img(src: '/images/get_in_google_play.png'),
+                styleList: [StyleElement.fromText('background: #1fbcfd')],
+                href: 'https://play.google.com/store/apps/details?id=su.flutter.pixelsand',
+                target: TargetA.blank(),
+                rel: RelA.nofollow,
+                children: [
+                  P(child: Text('Play on Android')),
+                  Img(src: '/images/get_in_google_play.png'),
+                ]),
+            A(
+              classList: [disabled],
+              children: [
+                P(child: Text('Sorry, but now<br>not available on iOS')),
+                Img(src: '/images/get_in_app_store.png'),
+              ],
             ),
-            P(child: Text('Sorry, but now not available on iOS')),
-            A(child: Img(src: '/images/get_in_app_store.png')),
           ]),
         ]),
       ]),
-      Footer(),
+      Footer(child: Div(id: 'contact')),
     ];
   }
 }

@@ -22,7 +22,11 @@ class HomeStyle extends StyleData {
     _navUlLiAHover,
     _paragraph,
     divStartPlay,
-    _divStartPlayChild
+    _divStartPlayChild,
+    _divStartPlayChildAfter,
+    _divContact,
+    _divStartPlayChildDisabled,
+    _divStartPlayChildAfterDisabled
   ];
 }
 
@@ -91,9 +95,53 @@ final divStartPlay = StyleClass(
   name: 'start_play',
   style: StyleCSS(
     display: DisplayCSS.flex,
-    flexDirection: FlexDirectionCSS.column,
     alignItems: AlignItemsCSS.center,
+    justifyContent: JustifyContentCSS.center,
+    flexWrap: FlexWrapCSS.wrap,
   ),
 );
 
-final _divStartPlayChild = StyleElement(name: '.start_play > *', style: StyleCSS(margin: EdgeInsetsCSSpx.all(10)));
+final _divStartPlayChild = StyleElement(
+  name: '.start_play > *',
+  style: StyleCSS(
+    margin: EdgeInsetsCSSpx.all(20),
+    display: DisplayCSS.flex,
+    flexDirection: FlexDirectionCSS.column,
+    height: SizeCSS.px(150),
+    textAlign: TextAlignCSS.center,
+    borderRadius: BorderRadiusCSSpx.symmetric(topLeftBottomRight: 150),
+    padding: EdgeInsetsCSSpx.symmetric(horizontal: 8, vertical: 8),
+    position: PositionCSS.relative,
+  ),
+);
+
+final _divStartPlayChildAfter = StyleElement(
+  name: '.start_play > *:after',
+  style: StyleCSS(
+      content: ContentCSS.text(''),
+      margin: EdgeInsetsCSSpx.only(left: -10, top: -10),
+      display: DisplayCSS.block,
+      height: SizeCSS.percent(100),
+      width: SizeCSS.percent(100),
+      borderRadius: BorderRadiusCSSpx.symmetric(bottomLeftTopRight: 150),
+      background: BackgroundCSS(color: ColorCSS(0xffff1dc4)),
+      zIndex: -1,
+      position: PositionCSS.absolute),
+);
+
+final _divStartPlayChildDisabled = StyleElement(
+  name: '.start_play > *.disabled',
+  style: StyleCSS(background: BackgroundCSS(color: ColorCSS(0xff909090))),
+);
+
+final _divStartPlayChildAfterDisabled = StyleElement(
+  name: '.start_play > *.disabled:after',
+  style: StyleCSS(background: BackgroundCSS(color: ColorCSS(0xff565656))),
+);
+
+final _divContact = StyleElement(
+  name: '#contact',
+  style: StyleCSS(
+    height: SizeCSS.px(150),
+  ),
+);
