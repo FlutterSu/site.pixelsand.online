@@ -17,21 +17,21 @@ class PixelSandRouter extends Router with Loggable {
   ];
 
   @override
-  Future<Response> builder(Request request) async {
+  Future<Response> build(Request request) async {
     var urlPath = request.url.path.toLowerCase();
 
     if (urlPath.startsWith('images/')) {
-      return FileData.path('assets/$urlPath', request: request).builder();
+      return FileData.path('assets/$urlPath', request: request).build();
     } else if (urlPath.startsWith('play/')) {
-      return ProxyData(request: request, url: 'https://app3.flutter.su/', relativePathFrom: 'play').builder();
+      return ProxyData(request: request, url: 'https://app3.flutter.su/', relativePathFrom: 'play').build();
     } else {
       switch (urlPath) {
         case '':
           return _responseOk('Flutter Pixel Sand', HomePage.build());
         case 'style.css':
-          return HomeStyle(request).builder();
+          return HomeStyle(request).build();
         case 'favicon.ico':
-          return FileData.path('assets/favicon.ico', request: request).builder();
+          return FileData.path('assets/favicon.ico', request: request).build();
         case 'play':
           return Response(301, headers: {'Location': 'play/'});
         default:
@@ -48,34 +48,30 @@ class PixelSandRouter extends Router with Loggable {
           ..._headerLinks,
         ]),
         Body(styleList: [
-          StyleElement(
-            style: StyleCSS(
-              textAlign: TextAlignCSS.center,
-              display: DisplayCSS.flex,
-              flexDirection: FlexDirectionCSS.column,
-              alignItems: AlignItemsCSS.center,
-              justifyContent: JustifyContentCSS.center,
-              height: SizeCSS.vh(100),
-            ),
-          )
+          StyleCSS(
+            textAlign: TextAlignCSS.center,
+            display: DisplayCSS.flex,
+            flexDirection: FlexDirectionCSS.column,
+            alignItems: AlignItemsCSS.center,
+            justifyContent: JustifyContentCSS.center,
+            height: SizeCSS.vh(100),
+          ),
         ], children: [
           H1(child: Text('Page not found 404')),
           A(child: Text('back to start page'), href: '/', styleList: [
-            StyleElement(
-              style: StyleCSS(
-                textDecoration: TextDecorationCSS(
-                  color: ColorsCSS.red,
-                  type: TextDecorationTypeCSS.underline,
-                  style: TextDecorationStyleCSS.wavy,
-                ),
+            StyleCSS(
+              textDecoration: TextDecorationCSS(
+                color: ColorsCSS.red,
+                type: TextDecorationTypeCSS.underline,
+                style: TextDecorationStyleCSS.wavy,
               ),
-            )
+            ),
           ]),
         ]),
       ]),
     );
 
-    return Response.notFound(htmlNotFound.html, headers: {'Content-Type': MimeTypes.html});
+    return Response.notFound(htmlNotFound.build(), headers: {'Content-Type': MimeTypes.html});
   }
 
   Response _responseOk(String title, List<NodeElement> elements) {
@@ -91,7 +87,7 @@ class PixelSandRouter extends Router with Loggable {
               Body(children: elements),
             ],
           ),
-        ).html,
+        ).build(),
         headers: {'Content-Type': MimeTypes.html});
   }
 }

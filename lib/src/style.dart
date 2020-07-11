@@ -6,7 +6,7 @@ class HomeStyle extends StyleData {
   HomeStyle(Request request) : super(request: request);
 
   @override
-  final List<StyleElement> styleClassList = [
+  final List<StyleElement> styles = [
     _allin,
     _body,
     _h1,
@@ -36,7 +36,7 @@ final _allin = StyleElement(
       fontFamily: '\'Roboto\', sans-serif',
       color: ColorsCSS.white,
       boxSizing: BoxSizingCSS.borderBox,
-      margin: EdgeInsetsCSSpx.all(0),
+      margin: EdgeInsetsCSS.zero,
     ));
 
 final _body = StyleElement(name: 'body', style: StyleCSS(background: BackgroundCSS(color: colorBackground)));
@@ -58,8 +58,8 @@ final _navUl = StyleElement(
     style: StyleCSS(
       display: DisplayCSS.flex,
       textTransform: TextTransformCSS.uppercase,
-      margin: EdgeInsetsCSSpx.only(top: 24),
-      padding: EdgeInsetsCSSpx.all(0),
+      margin: EdgeInsetsCSS.only(top: 24.px),
+      padding: EdgeInsetsCSS.zero,
       justifyContent: JustifyContentCSS.center,
     ),
     width: {600: StyleCSS(flexDirection: FlexDirectionCSS.column, alignItems: AlignItemsCSS.center)});
@@ -70,14 +70,14 @@ final _navUlLiA = StyleElement(
   name: 'nav ul li a',
   style: StyleCSS(
     display: DisplayCSS.block,
-    padding: EdgeInsetsCSSpx.all(10),
+    padding: EdgeInsetsCSS.all(10.px),
     textDecoration: TextDecorationCSS(type: TextDecorationTypeCSS.underline),
   ),
 );
 
 final disabled = StyleClass(
   name: 'disabled',
-  style: StyleCSS(color: ColorCSS(0xff828282), cursor: 'default'),
+  style: StyleCSS(color: ColorCSS(0xff828282), cursor: CursorCSS.defaultCursor),
 );
 
 final _navUlLiAHover = StyleElement(
@@ -88,7 +88,7 @@ final _navUlLiAHover = StyleElement(
 final _paragraph = StyleElement(
   name: 'p',
   style:
-      StyleCSS(padding: EdgeInsetsCSSpx.all(10), margin: EdgeInsetsCSS.all(SizeCSS.auto()), maxWidth: SizeCSS.px(500)),
+      StyleCSS(padding: EdgeInsetsCSS.all(10.px), margin: EdgeInsetsCSS.all(SizeCSS.auto), maxWidth: SizeCSS.px(500)),
 );
 
 final divStartPlay = StyleClass(
@@ -104,13 +104,13 @@ final divStartPlay = StyleClass(
 final _divStartPlayChild = StyleElement(
   name: '.start_play > *',
   style: StyleCSS(
-    margin: EdgeInsetsCSSpx.all(20),
+    margin: EdgeInsetsCSS.all(20.px),
     display: DisplayCSS.flex,
     flexDirection: FlexDirectionCSS.column,
     height: SizeCSS.px(150),
     textAlign: TextAlignCSS.center,
-    borderRadius: BorderRadiusCSSpx.symmetric(topLeftBottomRight: 150),
-    padding: EdgeInsetsCSSpx.symmetric(horizontal: 8, vertical: 8),
+    borderRadius: BorderRadiusCSS.symmetric(topLeftBottomRight: 150.px),
+    padding: EdgeInsetsCSS.symmetric(horizontal: 8.px, vertical: 8.px),
     position: PositionCSS.relative,
   ),
 );
@@ -119,11 +119,11 @@ final _divStartPlayChildAfter = StyleElement(
   name: '.start_play > *:after',
   style: StyleCSS(
       content: ContentCSS.text(''),
-      margin: EdgeInsetsCSSpx.only(left: -10, top: -10),
+      margin: EdgeInsetsCSS.only(left: -10.px, top: -10.px),
       display: DisplayCSS.block,
       height: SizeCSS.percent(100),
       width: SizeCSS.percent(100),
-      borderRadius: BorderRadiusCSSpx.symmetric(bottomLeftTopRight: 150),
+      borderRadius: BorderRadiusCSS.symmetric(bottomLeftTopRight: 150.px),
       background: BackgroundCSS(color: ColorCSS(0xffff1dc4)),
       zIndex: -1,
       position: PositionCSS.absolute),

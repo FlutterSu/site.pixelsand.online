@@ -18,7 +18,7 @@ class HomePage with Loggable {
               child: A(
                 child: Text('git'),
                 href: 'https://github.com/FlutterSu/site.pixelsand.online',
-                target: TargetA.blank(),
+                target: TargetA.blank,
                 rel: RelA.nofollow,
               ),
             ),
@@ -34,7 +34,7 @@ class HomePage with Loggable {
           ),
           Div(
               classList: [marginAuto, center],
-              styleList: [StyleElement.fromText('margin-top: 20px; max-width: 560px;')],
+              styleList: [StyleCSS.fromText('margin-top: 20px; max-width: 560px;')],
               child: Text(
                   '<iframe width="100%" height="315" src="https://www.youtube.com/embed/emPG1gnXj1U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')),
         ]),
@@ -44,16 +44,16 @@ class HomePage with Loggable {
             divStartPlay
           ], children: [
             A(
-                styleList: [StyleElement.fromText('background: #46d1fd')],
+                styleList: [StyleCSS.fromText('background: #46d1fd')],
                 href: '/play',
                 children: [
                   P(child: Text('Play now online')),
                   Img(src: '/images/get_in_web_browser.png'),
                 ]),
             A(
-                styleList: [StyleElement.fromText('background: #1fbcfd')],
+                styleList: [StyleCSS.fromText('background: #1fbcfd')],
                 href: 'https://play.google.com/store/apps/details?id=su.flutter.pixelsand',
-                target: TargetA.blank(),
+                target: TargetA.blank,
                 rel: RelA.nofollow,
                 children: [
                   P(child: Text('Play on Android')),
